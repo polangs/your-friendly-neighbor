@@ -18,15 +18,20 @@
 
 - Built in Visual Studio Code
 - GitHub - Version control.
+- Google Images for our Slideshow
 ***  
 
 ### Authors  
 Paula Cruz -  https://github.com/polangs  
 Sara Haynes - https://github.com/SaraJHaynes  
 Trae Bennet - https://github.com/TraeBenn22  
-Alex Reid - https://github.com/surfwalker  
+Alex Reid - https://github.com/surfwalker   
+Matthew Heyert - https://github.com/heyerthb 
 ***
 
+### Acknowledgements     
+- Dustin Haynes - Custom Icon Artwork   
+*** 
 
 ### License
 This project is licensed under the MIT License. See the LICENSE.md file for details.
