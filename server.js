@@ -45,8 +45,8 @@ function handleLocation(req, res) {
 // route handler for events
 function handleEvents(req, res){
   getEvents(req.query)
-  .then(events => res.send(events))
-  .catch(error => handleError(error, res) )
+    .then(events => res.send(events))
+    .catch(error => handleError(error, res) )
 }
 
 // pass in superagent to getEvents when modularize to events.js
@@ -54,8 +54,8 @@ function getEvents(query){
   console.log('query', query);
   let URL = `https://www.eventbriteapi.com/v3/events/search?location.address=${query.formatted_query}&location.within=1km`
   return superagent.get(URL)
-  .set('Authorization', `Bearer ${process.env.EVENT_BRITE}`)
-  .then(data => data.body.events.map(event => new Event(event)));
+    .set('Authorization', `Bearer ${process.env.EVENT_BRITE}`)
+    .then(data => data.body.events.map(event => new Event(event)));
 }
 
 function Event(event){
