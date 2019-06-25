@@ -15,7 +15,13 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+app.set('view engine', 'ejs');
+
 // routes
+app.get('/', loadHome);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 // app.get('/restaurants', handleRestaurant);
@@ -24,6 +30,10 @@ app.get('/events', handleEvents);
 const getLocation = require('./modules/location');
 // const getEvents = require('./modules/events');
 // const getEvents = require('./modules/restaurants');
+
+function loadHome(req, res) {
+res.render('pages/index');
+}
 
 // route handler for location
 function handleLocation(req, res) {
