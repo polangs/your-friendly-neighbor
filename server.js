@@ -17,7 +17,7 @@ app.use(cors());
 // routes
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
-// app.get('/restaurants', handleRestaurant);
+app.get('/restaurants', handleRestaurants);
 
 // internal modules
 const getLocation = require('./modules/location');
@@ -35,16 +35,16 @@ function handleLocation(req, res) {
 function handleEvents(req, res){
   getEvents(req.query)
   .then(events => res.send(events))
-  .catch(error => handleError(error, res) )
+  .catch(error => handleError(error, res));
 }
 
 // pass in superagent to getEvents when modularize to events.js
 function getEvents(query){
   console.log('query', query);
-  let URL = `https://www.eventbriteapi.com/v3/events/search?location.address=${query.formatted_query}&location.within=1km`
+  const URL = `https://www.eventbriteapi.com/v3/events/search?location.address=${query.formatted_query}&location.within=1km`
   return superagent.get(URL)
-  .set('Authorization', `Bearer ${process.env.EVENT_BRITE}`)
-  .then(data => data.body.events.map(event => new Event(event)));
+    .set('Authorization', `Bearer ${process.env.EVENT_BRITE}`)
+    .then(data => data.body.events.map(event => new Event(event)));
 }
 
 function Event(event){
@@ -54,18 +54,37 @@ function Event(event){
   this.summary = event.summary
 }
 
-// route handler for location
-// function handleRestaurants(req, res) {
-//   getRestaurants(req.query.location, superagent)
-//     .then(restaurants => res.send(restaurants))
-//     .catch(error => handleError(error, res));
-// }
+// route handler for restaurants based on location
+function handleRestaurants(req, res) {
+  console.log(req.query.location);
+  getRestaurants(req.query.location)
+    .then(restaurants => res.send(restaurants))
+    .catch(error => handleError(error, res));
+}
 
-// function getRestaurants
+// pass in superagent to getRestaurants when modularize to restaurants.js
+function getRestaurants(location) {
+  console.log('Yelp request', location);
+  const URL = `https://api.yelp.com/v3/businesses/search?term=restaurant&location=${location}`;
+
+  return superagent.get(URL)
+    .set('Authorization', `Bearer ${process.env.YELP_API_KEY}`)
+    .then(response => response.body.businesses.map(restaurant => new Restaurant(restaurant)));
+}
+
+function Restaurant (restaurantData) {
+  this.id = restaurantData.id;
+  this.name = restaurantData.name;
+  this.rating = restaurantData.rating;
+  this.price = restaurantData.price;
+  this.address = restaurantData.display_address;
+  this.phoneNumber = restaurantData.display_phone;
+  this.url = restaurantData.url;
+}
 
 function handleError(error, response) {
   console.error(error);
   response.status(500).send('I\'m sorry! we have run into a problem. Please try again later.');
 }
 
-app.listen(PORT, () => console.log(`App is listening on ${PORT}`) );
+app.listen(PORT, () => console.log(`App is listening on ${PORT}`));
