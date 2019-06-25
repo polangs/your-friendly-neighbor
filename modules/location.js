@@ -1,8 +1,7 @@
 function getLocation(query, superagent) {
   const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEO_DATA}`;
   
-  return superagent
-    .get(URL)
+  return superagent.get(URL)
     .then(response => {
       console.log('Response.body', response.body);
       console.log('*******************');
