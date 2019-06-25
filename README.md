@@ -29,8 +29,8 @@ Alex Reid - https://github.com/surfwalker
 Matthew Heyert - https://github.com/heyerthb 
 ***
 
-### Acknowledgements   
-Dustin Haynes - Custom Icon Artwork   
+### Acknowledgements     
+- Dustin Haynes - Custom Icon Artwork   
 *** 
 
 ### License
