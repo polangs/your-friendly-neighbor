@@ -28,7 +28,7 @@ client.on('error', err => console.error(err));
 // routes
 app.get('/', getPopular);
 app.post('/search', handleSearch);
-app.get('/dashboard', handleDashboard);
+app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
@@ -40,11 +40,29 @@ const getLocation = require('./modules/location');
 const getEvents = require('./modules/events');
 const getRestaurants = require('./modules/restaurants');
 
-
 // We switched app.get('/'loadHome') with ('/'getPopular) to load SQL Data
 // function loadHome(req, res) {
 //   res.render('pages/index');
 // }
+
+// route handler for events
+function handleEvents(req, res){
+  getEvents(req.query.location, superagent)
+  .then(events => {
+    res.render('pages/events', {events: events});
+  })
+  .catch(error => handleError(error, res));
+}
+
+// route handler for restaurants based on location
+function handleRestaurants(req, res) {
+  getRestaurants(req.query.location, superagent)
+  .then(restaurants => {
+    // res.send(restaurants)
+    res.render('pages/restaurants', {restaurants: restaurants});
+  })
+  .catch(error => handleError(error, res));
+}
 
 // route handler for location
 function handleLocation(req, res) {
@@ -53,41 +71,15 @@ function handleLocation(req, res) {
     .catch(error => handleError(error, res));
 }
 
-// route handler for events
-function handleEvents(req, res){
-  getEvents(req.query.location, superagent)
-    .then(events => {
-      res.render('pages/events', {events: events});
-    })
-    .catch(error => handleError(error, res));
-  }
-
-// route handler for restaurants based on location
-function handleRestaurants(req, res) {
-  getRestaurants(req.query.location, superagent)
-    .then(restaurants => {
-      // res.send(restaurants)
-      res.render('pages/restaurants', {restaurants: restaurants});
-    })
-    .catch(error => handleError(error, res));
-}
-
 // route handler for search location entered by user
 function handleSearch(req, res) {
-  // TODO: need to add GEO_CODE API hit then render
-  // res.send(req.body);
-  res.render('pages/new', {
-    'search_query': 'banff',
-    'formatted_query': 'Banff, AB, Canada',
-    'latitude': 51.1783629,
-    'longitude': -115.5707694
-  });
+  getLocation(req.body['city-neighborhood'], superagent)
+    .then(location => res.render('pages/new', location))
+    .catch(error => handleError(error, res));
 }
-
 
 //DATABASE HANDLER/////////////////
 //////////// if the search is not in the sql database
-
 function getPopular (req, res){
   let SQL = `SELECT * FROM popular`;
   return client.query(SQL)
@@ -95,20 +87,15 @@ function getPopular (req, res){
       console.log(places.rows);
       res.render('pages/index', { popularLocations: places.rows})
     })
-
 }
-
 
 // function getPopular(){
 //   let SQL = 'SELECT DISTINCT p FROM books ORDER BY bookshelf;';
-//
 // }
-//////////////////////////
 
 function handleDashboard(req, res) {
   res.render('pages/dashboard', {tbd: 'Coming Soon'});
 }
-
 
 function handleError(error, response) {
   console.error(error);
