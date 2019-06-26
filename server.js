@@ -21,18 +21,19 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // database Setup
-const client = new pg.Client(process.env.DATABASE_URL);
-client.connect();
-client.on('error', err => console.error(err));
+// const client = new pg.Client(process.env.DATABASE_URL);
+// client.connect();
+// client.on('error', err => console.error(err));
 
 // routes
-app.get('/', getPopular);
+app.get('/', loadHome);
+// app.get('/', getPopular);
 app.post('/search', handleSearch);
 app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
-app.get('/popular', getPopular);
+// app.get('/popular', getPopular);
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
 // internal modules
@@ -41,9 +42,9 @@ const getEvents = require('./modules/events');
 const getRestaurants = require('./modules/restaurants');
 
 // We switched app.get('/'loadHome') with ('/'getPopular) to load SQL Data
-// function loadHome(req, res) {
-//   res.render('pages/index');
-// }
+function loadHome(req, res) {
+  res.render('pages/index');
+}
 
 // route handler for events
 function handleEvents(req, res){
@@ -73,37 +74,29 @@ function handleLocation(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
-  getLocation(req.body['city-neighborhood'], superagent)
-    .then(location => res.render('pages/new', location))
-    .catch(error => handleError(error, res));
-}
-
-//DATABASE HANDLER/////////////////
-//////////// if the search is not in the sql database
-function getPopular (req, res){
-  let SQL = `SELECT * FROM popular`;
-  return client.query(SQL)
-    .then(places => {
-      console.log(places.rows);
-      res.render('pages/index', { popularLocations: places.rows})
-    })
-}
-
-<<<<<<< HEAD
-// route handler for search location entered by user
-function handleSearch(req, res) {
   // TODO: need to add GEO_CODE API hit then render
   console.log(req.body.search);
   let formattedQuery = req.body.search;
   res.render('pages/new', {formattedQuery});
-=======
+}
+
+//DATABASE HANDLER/////////////////
+//////////// if the search is not in the sql database
+// function getPopular (req, res){
+//   let SQL = `SELECT * FROM popular`;
+//   return client.query(SQL)
+//     .then(places => {
+//       console.log(places.rows);
+//       res.render('pages/index', { popularLocations: places.rows})
+//     })
+// }
+
 // function getPopular(){
 //   let SQL = 'SELECT DISTINCT p FROM books ORDER BY bookshelf;';
 // }
 
 function handleDashboard(req, res) {
   res.render('pages/dashboard', {tbd: 'Coming Soon'});
->>>>>>> 8b89484b60e56816f74d8cd77ccc966c10c79b29
 }
     
 
