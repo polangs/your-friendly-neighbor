@@ -1,5 +1,7 @@
-<% include layout/header %>
+<%= formatted_query %>
 
-
-
-<% include layout/footer %>
+<nav>
+  <ul>
+    <li><a href="/restaurants?location=<%= formatted_query %>"><%= formatted_query %></a></li>
+  </ul>
+</nav>
