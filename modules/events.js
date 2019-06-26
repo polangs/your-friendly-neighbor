@@ -1,6 +1,5 @@
-function getEvents(query, superagent){
-  console.log('query', query);
-  const URL = `https://www.eventbriteapi.com/v3/events/search?location.address=${query.formatted_query}&location.within=1km`
+function getEvents(location, superagent){
+  const URL = `https://www.eventbriteapi.com/v3/events/search?location.address=${location}&location.within=1km`
   return superagent.get(URL)
     .set('Authorization', `Bearer ${process.env.EVENT_BRITE}`)
     .then(data => data.body.events.map(event => new Event(event)));

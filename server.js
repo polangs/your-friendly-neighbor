@@ -28,6 +28,7 @@ client.on('error', err => console.error(err));
 // routes
 app.get('/', getPopular);
 app.post('/search', handleSearch);
+app.get('/dashboard', handleDashboard);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
@@ -54,14 +55,15 @@ function handleLocation(req, res) {
 
 // route handler for events
 function handleEvents(req, res){
-  getEvents(req.query, superagent)
-    .then(events => res.send(events))
+  getEvents(req.query.location, superagent)
+    .then(events => {
+      res.render('pages/events', {events: events});
+    })
     .catch(error => handleError(error, res));
-}
+  }
 
 // route handler for restaurants based on location
 function handleRestaurants(req, res) {
-  console.log(req.query.location);
   getRestaurants(req.query.location, superagent)
     .then(restaurants => {
       // res.send(restaurants)
@@ -82,6 +84,7 @@ function handleSearch(req, res) {
   });
 }
 
+
 //DATABASE HANDLER/////////////////
 //////////// if the search is not in the sql database
 
@@ -101,6 +104,12 @@ function getPopular (req, res){
 //
 // }
 //////////////////////////
+
+function handleDashboard(req, res) {
+  res.render('pages/dashboard', {tbd: 'Coming Soon'});
+}
+
+
 function handleError(error, response) {
   console.error(error);
   response.status(500).send('I\'m sorry! we have run into a problem. Please try again later.');
