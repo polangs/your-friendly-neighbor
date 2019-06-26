@@ -2,8 +2,7 @@
 <html lang="en">
   
   <head>
-    <title>Search Form</title>
-      <%- include('../layout/header') %>
+    <title>Destination Top 10</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/styles/reset.css" />
       <link rel="stylesheet" href="/styles/base.css" />
@@ -13,35 +12,14 @@
   </head>
 
   <body>
-    <h1>Sample Form</h1>
+    <h1>Where would you like to go today?</h1>
     <main>
-
       <form action="/search" method="post">
         <label> Enter a city or a neighnorhood
-          <input type="text" name="city-neighborhood">
+          <input type="text" name="search">
           <button type="submit">Search!</button>
         </label>
       </form>
-
-      <div class="grid">
-        <div class="a">Image Placeholder</div>
-        <div class="b">B</div>
-        <div class="c">C</div>
-        <div class="d">D</div>
-        <div class="e">E</div>
-        <div class="f">F</div>
-        <div class="g">G</div>
-      </div>
-      
-      <footer id="i">I</footer>
-        <p>
-          <a href="#"><img title="yelp" alt="yelp" src="/public/styles/img.css/Dining.svg" width="30px"></a> 
-          <a href="#"><img title="events" alt="events" src="/public/styles/img.css/Beer.svg" width="30px"></a> 
-          <a href="#"><img title="parks" alt="parks" src="/public/styles/img.css/Park.svg" width="30px"></a> 
-          <a href="#"><img title="crime" alt="crime" src="/public/styles/img.css/Crime.svg" width="30px"></a> 
-          <a href="#"><img title="transit" alt="transit" src="/public/styles/img.css/Bus.svg" width="30px"></a> 
-        </p>
-      <footer id="i">I</footer>
    </main>
   </body>
 </html>

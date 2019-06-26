@@ -1,8 +1,8 @@
-<%= formatted_query %>
+ Here's some information about: <%= formattedQuery %>
 
 <nav>
   <ul>
-    <li><a href="/restaurants?location=<%= formatted_query %>"><%= formatted_query %></a></li>
-    <li><a href="/events?location=<%= formatted_query %>&location.within=1km<%= formatted_query %>"><%= formatted_query %></a></li>
+    <a href="/restaurants?location=<%= formattedQuery %>"><img src="/styles/img/Dining.png" class="icn"></a>
+     <a href="/events?location=<%= formattedQuery %>&location.within=1km<%= formattedQuery %>"><img src="/styles/img/Park.png" class="icn"></a>
   </ul>
 </nav>

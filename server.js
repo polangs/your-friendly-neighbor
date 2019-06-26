@@ -71,14 +71,12 @@ function handleRestaurants(req, res) {
 // route handler for search location entered by user
 function handleSearch(req, res) {
   // TODO: need to add GEO_CODE API hit then render
-  // res.send(req.body);
-  res.render('pages/new', {
-    "search_query": "banff",
-    "formatted_query": "Banff, AB, Canada",
-    "latitude": 51.1783629,
-    "longitude": -115.5707694
-  });
+  console.log(req.body.search);
+  let formattedQuery = req.body.search;
+  res.render('pages/new', {formattedQuery});
 }
+    
+
 
 function handleError(error, response) {
   console.error(error);
