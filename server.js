@@ -20,11 +20,17 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
+//database Setup
+// const user = new pg.User(process.env.DATABASE_URL);
+// user.connect();
+// user.on('error', err => console.error(err));
+
 // routes
 app.get('/', loadHome);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
+// app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
 // internal modules
 const getLocation = require('./modules/location');
@@ -45,8 +51,8 @@ function handleLocation(req, res) {
 // route handler for events
 function handleEvents(req, res){
   getEvents(req.query, superagent)
-  .then(events => res.send(events))
-  .catch(error => handleError(error, res));
+    .then(events => res.send(events))
+    .catch(error => handleError(error, res));
 }
 
 // route handler for restaurants based on location
