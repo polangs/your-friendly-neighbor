@@ -27,12 +27,12 @@ client.on('error', err => console.error(err));
 
 // routes
 app.get('/', getPopular);
-app.post('/search', handleSearch);
+app.post('/search', handleLocation);
 app.get('/dashboard', handleDashboard);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
-app.get('/popular', getPopular);
+// app.post('')
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
 // internal modules
@@ -48,7 +48,7 @@ const getRestaurants = require('./modules/restaurants');
 
 // route handler for location
 function handleLocation(req, res) {
-  getLocation(req.query.data, superagent)
+  getLocation(req.body.city_neighborhood, client, superagent)
     .then(location => res.send(location))
     .catch(error => handleError(error, res));
 }
@@ -60,7 +60,7 @@ function handleEvents(req, res){
       res.render('pages/events', {events: events});
     })
     .catch(error => handleError(error, res));
-  }
+}
 
 // route handler for restaurants based on location
 function handleRestaurants(req, res) {
@@ -98,11 +98,37 @@ function getPopular (req, res){
 
 }
 
-
-// function getPopular(){
-//   let SQL = 'SELECT DISTINCT p FROM books ORDER BY bookshelf;';
-//
+// function cacheLocation(location, client) {
+//   // console.log('caching query);
+//   const SQL = `INSERT INTO popular (query, formatted_query, latitude, longitude) VALUES (${
+//     location.query}, ${location.formatted_query}, ${location.latitude}, ${location.longitude}`;
+//   return client.query(SQL).then(results => {
+//     return location;
+//   });
 // }
+// function cacheLocation(location, client) {
+//   const insertSQL = `
+//     INSERT INTO locations (search_query, formatted_query, latitude, longitude)
+//     VALUES('${location.search_query}','${location.formatted_query}', ${
+//   location.latitude
+// }, ${location.longitude})
+//     RETURNING id;
+// `;
+
+//   return client.query(insertSQL).then(results => {
+//     // console.log('location results from db', results);
+
+//     // console.log('location results id', results.rows[0].id);
+
+//     location.id = results.rows[0].id;
+
+//     // console.log(' new location object ', location);
+
+//     return location;
+//   });
+// }
+
+
 //////////////////////////
 
 function handleDashboard(req, res) {
