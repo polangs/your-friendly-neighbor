@@ -10,8 +10,6 @@ function getLocation(query, superagent) {
     });
 }
 
-
-
 function Location(query, geoData) {
   console.log(query, geoData);
   this.search_query = query;
