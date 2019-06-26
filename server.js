@@ -28,6 +28,7 @@ app.set('view engine', 'ejs');
 // routes
 app.get('/', loadHome);
 app.post('/search', handleSearch);
+app.get('/dashboard', handleDashboard);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
@@ -78,6 +79,10 @@ function handleSearch(req, res) {
     "latitude": 51.1783629,
     "longitude": -115.5707694
   });
+}
+
+function handleDashboard(req, res) {
+  res.render('pages/dashboard', {tbd: 'Coming Soon'});
 }
 
 function handleError(error, response) {
