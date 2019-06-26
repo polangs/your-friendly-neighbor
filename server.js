@@ -27,6 +27,7 @@ app.set('view engine', 'ejs');
 
 // routes
 app.get('/', loadHome);
+app.post('/search', handleSearch);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
@@ -59,8 +60,23 @@ function handleEvents(req, res){
 function handleRestaurants(req, res) {
   console.log(req.query.location);
   getRestaurants(req.query.location, superagent)
-    .then(restaurants => res.send(restaurants))
+    .then(restaurants => {
+      // res.send(restaurants)
+      res.render('pages/restaurants', {restaurants: restaurants});
+    })
     .catch(error => handleError(error, res));
+}
+
+// route handler for search location entered by user
+function handleSearch(req, res) {
+  // TODO: need to add GEO_CODE API hit then render
+  // res.send(req.body);
+  res.render('pages/new', {
+    "search_query": "banff",
+    "formatted_query": "Banff, AB, Canada",
+    "latitude": 51.1783629,
+    "longitude": -115.5707694
+  });
 }
 
 function handleError(error, response) {
