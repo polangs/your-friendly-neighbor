@@ -1,5 +1,14 @@
-<h1>Hullo from restaurants!</h1>
+<html>
 
-<% restaurants.forEach(restaurant => { %>
-    <%= restaurant.restaurant_name %>
-<% }); %>
+
+<body>
+        <% restaurants.forEach(restaurant => { %>
+    <ol><%= restaurant.restaurant_name %></ol>
+    <ol><%= restaurant.rating %></ol>
+    <ol><%= restaurant.price %></ol>
+    <ol><%= restaurant.address %></ol>
+    <ol><%= restaurant.phoneNumber %></ol>
+    <ol><%= restaurant.url %></ol>
+    <% }); %>
+</body>
+</html>
