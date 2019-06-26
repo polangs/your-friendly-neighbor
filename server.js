@@ -51,14 +51,15 @@ function handleLocation(req, res) {
 
 // route handler for events
 function handleEvents(req, res){
-  getEvents(req.query, superagent)
-    .then(events => res.send(events))
+  getEvents(req.query.location, superagent)
+    .then(events => {
+      res.render('pages/events', {events: events});
+    })
     .catch(error => handleError(error, res));
-}
+  }
 
 // route handler for restaurants based on location
 function handleRestaurants(req, res) {
-  console.log(req.query.location);
   getRestaurants(req.query.location, superagent)
     .then(restaurants => {
       // res.send(restaurants)
