@@ -40,14 +40,18 @@
       </form>
         <!-- POPULAR DESTINATIONS OPTION -->
 <!-- location. = in select area -->
-      <form>
-        <select id="dropdown">
-          <option value="default">Select a Popular Destination</option>
-          <% popularLocations.forEach(location => { %>
 
+      <form action="/past_search" method="post">
+        
+        <select id="dropdown" name="search" required>
+          <option value="default">Select a Popular Destination</option>
+          <!-- <% popularLocations.sort((a, b) => a.formatted_query - b.formatted_query); %> -->
+          <% popularLocations.forEach(location => { %>
           <option value="<%= location.query %>"><%= location.formatted_query %></option>
           <% }) %>
-        </select>   
+        </select>  
+          <button id="button2" type="submit">Search!</button> 
+
       </form>
    </main>
 
