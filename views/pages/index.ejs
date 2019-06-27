@@ -17,7 +17,7 @@
   <body id="index">
     
     <!-- MAIN TITLE -->
-    <h1 id="title">Title</h1>
+    <h1 id="title">Experience Local</h1>
 
 <!-- SUBTITLE WHERE WOULD YOU LIKE TO GO TODAY -->
 
@@ -37,11 +37,17 @@
 
         </label>
         <p> OR </p>
+      </form>
         <!-- POPULAR DESTINATIONS OPTION -->
+<!-- location. = in select area -->
+      <form>
         <select id="dropdown">
           <option value="default">Select a Popular Destination</option>
-        </select>
+          <% popularLocations.forEach(location => { %>
 
+          <option value="<%= location.query %>"><%= location.formatted_query %></option>
+          <% }) %>
+        </select>   
       </form>
    </main>
 
