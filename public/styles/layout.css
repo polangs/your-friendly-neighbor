@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(5);
     grid-template-rows:  minmax(100px, auto);
-    border: 2px solid black;
+    border: .1 solid rgb(235, 11, 11);
    
 } 
 
@@ -22,7 +22,7 @@
     grid-column: 1 / 2;
     grid-row: 1 / 7;
     line-height: 400px; 
-    border: 2px solid black;
+    border: 2px solid rgb(110, 236, 6);
 }
 
 .c {
@@ -67,7 +67,6 @@
 footer {
     grid-column: 1 / 7;
     grid-row: 7 / 8;
-    height: 50px;
     line-height: 50px;
     border: 2px solid black;
 }
@@ -78,85 +77,29 @@ footer {
 
 @media(max-width: 767px) {
 
-    .grid {
-        display: grid;
-        grid-template-columns: 3;
-        grid-template-rows:  minmax(10px, auto);
-        background-color: rgb(165, 187, 194);
-        border: 2px solid black;  
+.grid {
+    display: grid;
+    grid-template-columns: 5;
+    grid-template-rows:  minmax(10px, auto);
+    background-image: url("img.css/abstract-astrology-astronomy-2212858.jpg");       
+    border: 1px solid black;  
     } 
 
-
-    .a {
-        grid-column: 1 / 5;
-        grid-row: 1;
-        height: 10em;
-        line-height: 10em;
-        border: 2px solid black;
+.a {
+    grid-column: 1 / 7;
+    grid-row: 1;
+    border: 2px solid black;
     }
     
-
-    .b {
-        grid-column: 1 / 5;
-        grid-row: 3;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-    }
+.b {
+    grid-column: 1 / 3;
+    grid-row: 3 / 7;
+    border: 2px solid rgb(247, 6, 6)
+}
     
-    .c {
-        grid-column: 1 / 5;
-        grid-row: 4;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-        
+.c {
+    grid-column: 3 / 6;
+    grid-row: 3 / 7;
+    border: 2px solid black       
     }
-    
-    .d {
-        grid-column: 1 / 5;
-        grid-row: 5;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-        
-    }
-    
-    .e {
-        grid-column: 1 / 5;
-        grid-row: 6;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-        
-    }
-    
-    .f {
-        grid-column: 1 / 5;
-        grid-row: 7;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-       
-    }
-    
-    .g {
-        grid-column: 1 / 5;
-        grid-row: 8;
-        height: 3em;
-        line-height: 3em;
-        border: 2px solid black
-        
-    }
-    
-    
-    footer {
-        grid-column: 1 / 5;
-        grid-row: 9;
-         height: 3em;
-        line-height: 3em;
-        border: 2px solid black;
-        
-    }
-
 }
