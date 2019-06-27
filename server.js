@@ -28,6 +28,7 @@ client.on('error', err => console.error(err));
 // routes
 app.get('/', getPopular);
 app.post('/search', handleSearch);
+app.post('/past_search', handleSearch);
 app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
@@ -75,21 +76,24 @@ function handleRestaurants(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
-
+  console.log('**** handle search body', req.body, '*****');
   getLocation(req.body.search, client, superagent)
     .then(location => res.render('pages/dashboard', location))
     .catch(error => handleError(error, res));
 }
 
 //DATABASE HANDLER/////////////////
-//////////// if the search is not in the sql database
+// if the search is not in the sql database
 
 function getPopular(req, res) {
-  let SQL = `SELECT * FROM popular`;
+  let SQL = `SELECT DISTINCT query, formatted_query FROM popular ORDER BY formatted_query LIMIT 10`;
   return client.query(SQL)
     .then(places => {
-      console.log(places.rows);
-      res.render('pages/index', { popularLocations: places.rows })
+      console.log('before', places.rows);
+      // let sortedRow = [...places.rows];
+      // sortedRow.sort((a, b) => a.formatted_query > b.formatted_query);
+      // console.log('AFTER///////////////////////', sortedRow);
+      res.render('pages/index', { popularLocations: places.rows})
     })
 
 }
