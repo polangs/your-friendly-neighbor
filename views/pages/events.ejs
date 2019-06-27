@@ -1,10 +1,28 @@
-<html>
-  <body>
-    <% events.forEach(event => { %>
-    <ol><%= event.link %></ol>
-    <ol><%= event.event_name%></ol>
-    <ol><%= event.event_date %></ol>
-    <ol><%= event.summary %></ol>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+
+</head>
+<% events.forEach(event => { %>
+    <div class="tile">
+        
+        <div class="container">
+            <ul>
+                <li class="list"><%= event.link %></li>
+                <li class="list"><%= event.event_name%></li>
+                <li class="list"><%= event.event_date %></li>
+                <li class="list"><%= event.summary %></li>
+                <li class="list"><%= event.image %></li>
+                
+            </ul>
+        </div>
+    </div>
     <% }); %>
-  </body>
-</html>
+    </body>

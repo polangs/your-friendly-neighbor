@@ -1,14 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
 
-<body>
-        <% restaurants.forEach(restaurant => { %>
-    <ol><%= restaurant.restaurant_name %></ol>
-    <ol><%= restaurant.rating %></ol>
-    <ol><%= restaurant.price %></ol>
-    <ol><%= restaurant.address %></ol>
-    <ol><%= restaurant.phoneNumber %></ol>
-    <ol><%= restaurant.url %></ol>
-    <% }); %>
+</head>
+
+<% restaurants.forEach(restaurant => { %>
+<div class="tile">
+    <img src="<%= restaurant.image %>"/>
+    <div class="container">
+        <ul>
+            <li class="list"><%= restaurant.restaurant_name %></li>
+            <li class="list"><%= restaurant.rating %></li>
+            <li class="list"><%= restaurant.price %></li>
+            <li class="list"><%= restaurant.address %></li>
+            <li class="list"><%= restaurant.phoneNumber %></li>
+            <li class="list"><a href="<%= restaurant.url %>">Visit Yelp</a></li>
+        </ul>
+    </div>
+</div>
+<% }); %>
 </body>
+
 </html>
