@@ -76,7 +76,7 @@ function handleRestaurants(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
-
+  console.log('**** handle search body', req.body, '*****');
   getLocation(req.body.search, client, superagent)
     .then(location => res.render('pages/dashboard', location))
     .catch(error => handleError(error, res));
@@ -86,7 +86,7 @@ function handleSearch(req, res) {
 //////////// if the search is not in the sql database
 
 function getPopular(req, res) {
-  let SQL = `SELECT DISTINCT formatted_query FROM popular ORDER BY formatted_query LIMIT 10`;
+  let SQL = `SELECT DISTINCT query, formatted_query FROM popular ORDER BY formatted_query LIMIT 10`;
   return client.query(SQL)
     .then(places => {
       console.log('before', places.rows);
