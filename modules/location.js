@@ -11,7 +11,6 @@ function getLocation(query, client, superagent) {
     .then(location => {
       return cacheLocation(location, client)
     });
-
 }
 
 function Location(query, geoData) {
