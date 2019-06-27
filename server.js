@@ -75,10 +75,10 @@ function handleRestaurants(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
-  // TODO: need to add GEO_CODE API hit then render
-  console.log(req.body.search);
-  let formattedQuery = req.body.search;
-  res.render('pages/new', { formattedQuery });
+
+  getLocation(req.body.search, client, superagent)
+    .then(location => res.render('pages/dashboard', location))
+    .catch(error => handleError(error, res));
 }
 
 //DATABASE HANDLER/////////////////
