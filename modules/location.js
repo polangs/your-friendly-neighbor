@@ -4,23 +4,33 @@ function getLocation(query, client, superagent) {
 
   return superagent.get(URL)
     .then(response => {
-      console.log('Response.body', response.body);
-      console.log('*******************');
-      return new Location(query, response.body.results[0])
+      const locationName = response.body.results[0].address_components[0].long_name;
+      const imageSearchURL = `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_CUSTOM_SEARCH_TOKEN}&cx=${process.env.GOOGLE_CUSTOM_SEARCH_ID}-x5i&&searchType=image&q=${locationName}&num=1`;
+      return superagent.get(imageSearchURL).then(imageSearchResult => {
+        console.log(imageSearchResult.body.items);
+        const link = imageSearchResult.body.items[0].link;
+        return {query: query,
+                imageURL: link,
+                locationInfo: response.body.results[0]}
+      })
+    })
+    .then(locationData => {
+      return new Location(locationData.query, locationData.imageURL, locationData.locationInfo)
     })
     .then(location => {
       return cacheLocation(location, client)
     });
 }
 
-function Location(query, geoData) {
-  console.log(query, geoData);
+function Location(query, imageLink, geoData) {
+  console.log(query, imageLink, geoData);
   this.query = query;
   this.formatted_query = geoData.formatted_address;
   this.name = geoData.address_components[0].long_name;
   this.latitude = geoData.geometry.location.lat;
   this.longitude = geoData.geometry.location.lng;
   this.map = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyBFwYFVJcxEDhqJPLXsEFGeLZLaa0RtCbQ`;
+  this.image = imageLink;
 }
 
 function cacheLocation(location, client) {
