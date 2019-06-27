@@ -12,10 +12,12 @@ function getLocation(query, superagent) {
 
 function Location(query, geoData) {
   console.log(query, geoData);
+  this.name = geoData.address_components[0].long_name;
   this.query = query; //formerly this.search_query = query; in JSON file as well
   this.formatted_query = geoData.formatted_address;
   this.latitude = geoData.geometry.location.lat;
   this.longitude = geoData.geometry.location.lng;
+  console.log('My name is: ', this.name);
 }
 
 module.exports = getLocation;

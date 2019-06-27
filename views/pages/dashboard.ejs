@@ -14,7 +14,13 @@
   <body>
     <main>
       <div class="grid">
-        <div class="a"><button type="home">Home</button>Image Placeholder</div>
+        <div class="a">
+          <li><%= formatted_query %></li>
+          <li><img id="map" src=`https://maps.googleapis.com/maps/api/staticmap?center=<%=latitude%>,<%=longitude%>&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyBFwYFVJcxEDhqJPLXsEFGeLZLaa0RtCbQ` alt="Map of search query"></li>
+          <li><%= latitude %></li>
+          <li><%= longitude %></li>
+          <button type="home">Home</button>
+        </div>
         <div class="restaurant">Restaurants</div>
         <div class="events">Events</div>
         <div class="icon1">icon1 here</div>

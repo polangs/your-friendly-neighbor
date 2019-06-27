@@ -1,9 +1,8 @@
-<%= formatted_query %>
-
 <nav>
   <ul>
     <li><a href="/restaurants?location=<%= formatted_query %>"><%= formatted_query %></a></li>
     <li><a href="/events?location=<%= formatted_query %>&location.within=1km<%= formatted_query %>"><%= formatted_query %></a></li>
+    <li><%= formatted_query %></li>
     <li><%= latitude %></li>
     <li><%= longitude %></li>
   </ul>

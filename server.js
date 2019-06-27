@@ -1,16 +1,16 @@
 
 'use strict';
 
-// Load Environment Variables from the .env file
+// load Environment Variables from the .env file
 require('dotenv').config();
 
-// Application Dependencies
+// application Dependencies
 const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
 
-// Application Setup
+// application Setup
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
@@ -58,7 +58,6 @@ function handleEvents(req, res){
 function handleRestaurants(req, res) {
   getRestaurants(req.query.location, superagent)
   .then(restaurants => {
-    // res.send(restaurants)
     res.render('pages/restaurants', {restaurants: restaurants});
   })
   .catch(error => handleError(error, res));
@@ -73,25 +72,22 @@ function handleLocation(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
+  console.log(req.body['city-neighborhood']);
   getLocation(req.body['city-neighborhood'], superagent)
-    .then(location => res.render('pages/new', location))
+    .then(location => res.render('pages/dashboard', location))
     .catch(error => handleError(error, res));
 }
 
-//DATABASE HANDLER/////////////////
-//////////// if the search is not in the sql database
+// DATABASE HANDLER
+// if the search is not in the sql database
 function getPopular (req, res){
   let SQL = `SELECT * FROM popular`;
   return client.query(SQL)
     .then(places => {
       console.log(places.rows);
-      res.render('pages/index', { popularLocations: places.rows})
+      res.render('pages/index', {popularLocations: places.rows})
     })
 }
-
-// function getPopular(){
-//   let SQL = 'SELECT DISTINCT p FROM books ORDER BY bookshelf;';
-// }
 
 function handleDashboard(req, res) {
   res.render('pages/dashboard', {tbd: 'Coming Soon'});
