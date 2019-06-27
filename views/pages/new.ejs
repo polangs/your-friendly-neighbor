@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav>
   <ul>
     <li><a href="/restaurants?location=<%= formatted_query %>"><%= formatted_query %></a></li>
@@ -5,5 +6,13 @@
     <li><%= formatted_query %></li>
     <li><%= latitude %></li>
     <li><%= longitude %></li>
+=======
+Here's some information about: <%= formattedQuery %>
+
+<nav>
+  <ul>
+    <a href="/restaurants?location=<%= formattedQuery %>"><img src="/styles/img/Dining.png" class="icn"></a>
+     <a href="/events?location=<%= formattedQuery %>&location.within=1km<%= formattedQuery %>"><img src="/styles/img/Park.png" class="icn"></a>
+>>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
   </ul>
 </nav>

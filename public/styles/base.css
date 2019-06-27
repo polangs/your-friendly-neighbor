@@ -2,3 +2,31 @@ body {
     background-color: rgb(66, 177, 185);
     text-align-last: center;
 } 
+
+img {
+    width: 50px;
+    max-width: 50%;
+}
+
+div {
+    box-sizing: content-box;
+width: 100%;
+border: red 10px;
+padding: 5px;
+}
+
+.tile {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 2px 16px;
+    margin: 25px;
+    background-color: whitesmoke;
+    max-width: 300px;
+    min-height: 300px;
+    text-align: center;
+}
+
+.tile img {
+    max-width: 300px;
+    min-width: 300px;
+    padding-top: 15px;
+}
