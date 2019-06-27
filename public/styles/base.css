@@ -30,3 +30,30 @@ padding: 5px;
     min-width: 300px;
     padding-top: 15px;
 }
+
+.name {
+    
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+.rating {
+    font-family: 'Stylish', sans-serif;
+}
+
+.address {
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+.phone {
+    font-family: 'Stylish', sans-serif;
+    color: lightsalmon;
+
+}
+
+.price {
+    font-family: 'Stylish', sans-serif;
+}
+
+.addPages {
+    background-color: lightgray;
+}

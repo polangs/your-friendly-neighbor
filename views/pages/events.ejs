@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Hind+Guntur|Rubik+Mono+One|Permanent+Marker|Shadows+Into+Light|Stylish&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="/styles/icons.css" />
 
 </head>
+<body class="addPages">
 <% events.forEach(event => { %>
     <div class="tile">
 
@@ -17,10 +19,11 @@
 
         <div class="container">
             <ul>
-                <li class="list"><%= event.link %></li>
-                <li class="list"><%= event.event_name%></li>
-                <li class="list"><%= event.event_date %></li>
-                <li class="list"><%= event.summary %></li>
+                
+                <li class="name"><%= event.event_name%></li>
+                <li class="phone"><%= event.event_date %></li>
+                <li class="address"><%= event.summary %></li>
+                <li class="price"><a href="<%= event.link %>" style="color: darkcyan">Visit EventBrite</a></li>
 
                 
             </ul>
