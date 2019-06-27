@@ -64,23 +64,10 @@ function handleEvents(req, res) {
 // route handler for restaurants based on location
 function handleRestaurants(req, res) {
   getRestaurants(req.query.location, superagent)
-<<<<<<< HEAD
-  .then(restaurants => {
-    res.render('pages/restaurants', {restaurants: restaurants});
-  })
-  .catch(error => handleError(error, res));
-}
-
-// route handler for location
-function handleLocation(req, res) {
-  getLocation(req.query.data, superagent)
-    .then(location => res.send(location))
-=======
     .then(restaurants => {
       // res.send(restaurants)
       res.render('pages/restaurants', { restaurants: restaurants });
     })
->>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
     .catch(error => handleError(error, res));
 }
 
@@ -88,76 +75,25 @@ function handleLocation(req, res) {
 
 // route handler for search location entered by user
 function handleSearch(req, res) {
-<<<<<<< HEAD
-  console.log(req.body['city-neighborhood']);
-  getLocation(req.body['city-neighborhood'], superagent)
-=======
 
   getLocation(req.body.search, client, superagent)
->>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
     .then(location => res.render('pages/dashboard', location))
     .catch(error => handleError(error, res));
 }
 
-<<<<<<< HEAD
-// DATABASE HANDLER
-// if the search is not in the sql database
-function getPopular (req, res){
-=======
 //DATABASE HANDLER/////////////////
 //////////// if the search is not in the sql database
 
 function getPopular(req, res) {
->>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
   let SQL = `SELECT * FROM popular`;
   return client.query(SQL)
     .then(places => {
       console.log(places.rows);
-<<<<<<< HEAD
-      res.render('pages/index', {popularLocations: places.rows})
-=======
       res.render('pages/index', { popularLocations: places.rows })
->>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
     })
 
 }
 
-<<<<<<< HEAD
-=======
-// function cacheLocation(location, client) {
-//   // console.log('caching query);
-//   const SQL = `INSERT INTO popular (query, formatted_query, latitude, longitude) VALUES (${
-//     location.query}, ${location.formatted_query}, ${location.latitude}, ${location.longitude}`;
-//   return client.query(SQL).then(results => {
-//     return location;
-//   });
-// }
-// function cacheLocation(location, client) {
-//   const insertSQL = `
-//     INSERT INTO locations (search_query, formatted_query, latitude, longitude)
-//     VALUES('${location.search_query}','${location.formatted_query}', ${
-//   location.latitude
-// }, ${location.longitude})
-//     RETURNING id;
-// `;
-
-//   return client.query(insertSQL).then(results => {
-//     // console.log('location results from db', results);
-
-//     // console.log('location results id', results.rows[0].id);
-
-//     location.id = results.rows[0].id;
-
-//     // console.log(' new location object ', location);
-
-//     return location;
-//   });
-// }
-
-
-//////////////////////////
-
->>>>>>> e252023b914acf1465e86cbd7b7206ecdbb982fc
 function handleDashboard(req, res) {
   res.render('pages/dashboard', { tbd: 'Coming Soon' });
 }
