@@ -1,6 +1,12 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: #f3f0f0;
+
+} 
+
+.BGI{
+  z-index: -500;
+  opacity: .4;
+  position: fixed;
 } 
 
 .grid {
@@ -134,6 +140,7 @@ footer{
 
 
 @media(min-width: 767px) {
+  
 
 .grid {
   display: grid;
@@ -141,6 +148,12 @@ footer{
   grid-template-rows:  minmax(10px, auto); 
 
 } 
+
+.BGI{
+  z-index: -500;
+  opacity: .4;
+  position: fixed;
+}
 
 .image {
   max-width: 100%;
