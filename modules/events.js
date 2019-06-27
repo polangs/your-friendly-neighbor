@@ -6,10 +6,13 @@ function getEvents(location, superagent){
 }
 
 function Event(event){
-  this.link = event.url,
-  this.event_name= event.name.text, //changed this.name to this.event_name
-  this.event_date = event.start.local,
-  this.summary = event.summary
+  this.link = event.url;
+  this.event_name= event.name.text;//changed this.name to this.event_name
+  this.event_date = event.start.local;
+  this.summary = event.summary;
+
+  this.image = event.logo.original.url;
+
 }
 
 module.exports = getEvents;

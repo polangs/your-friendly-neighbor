@@ -1,16 +1,16 @@
 
 'use strict';
 
-// Load Environment Variables from the .env file
+// load Environment Variables from the .env file
 require('dotenv').config();
 
-// Application Dependencies
+// application Dependencies
 const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
 
-// Application Setup
+// application Setup
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
@@ -97,39 +97,6 @@ function getPopular(req, res) {
     })
 
 }
-
-// function cacheLocation(location, client) {
-//   // console.log('caching query);
-//   const SQL = `INSERT INTO popular (query, formatted_query, latitude, longitude) VALUES (${
-//     location.query}, ${location.formatted_query}, ${location.latitude}, ${location.longitude}`;
-//   return client.query(SQL).then(results => {
-//     return location;
-//   });
-// }
-// function cacheLocation(location, client) {
-//   const insertSQL = `
-//     INSERT INTO locations (search_query, formatted_query, latitude, longitude)
-//     VALUES('${location.search_query}','${location.formatted_query}', ${
-//   location.latitude
-// }, ${location.longitude})
-//     RETURNING id;
-// `;
-
-//   return client.query(insertSQL).then(results => {
-//     // console.log('location results from db', results);
-
-//     // console.log('location results id', results.rows[0].id);
-
-//     location.id = results.rows[0].id;
-
-//     // console.log(' new location object ', location);
-
-//     return location;
-//   });
-// }
-
-
-//////////////////////////
 
 function handleDashboard(req, res) {
   res.render('pages/dashboard', { tbd: 'Coming Soon' });
