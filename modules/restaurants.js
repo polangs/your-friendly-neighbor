@@ -15,6 +15,7 @@ function Restaurant (restaurantData) {
   this.address = restaurantData.display_address;
   this.phoneNumber = restaurantData.display_phone;
   this.url = restaurantData.url;
+  this.image = restaurantData.image_url;
 }
 
 module.exports = getRestaurants
