@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Hind+Guntur|Rubik+Mono+One|Permanent+Marker|Shadows+Into+Light|Stylish&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
@@ -10,18 +11,19 @@
     <link rel="stylesheet" href="/styles/icons.css" />
 
 </head>
+<body class="addPages">
 
 <% restaurants.forEach(restaurant => { %>
 <div class="tile">
     <img src="<%= restaurant.image %>"/>
     <div class="container">
         <ul>
-            <li class="list"><%= restaurant.restaurant_name %></li>
-            <li class="list"><%= restaurant.rating %></li>
-            <li class="list"><%= restaurant.price %></li>
-            <li class="list"><%= restaurant.address %></li>
-            <li class="list"><%= restaurant.phoneNumber %></li>
-            <li class="list"><a href="<%= restaurant.url %>">Visit Yelp</a></li>
+            <li class="name"><%= restaurant.restaurant_name %></li>
+            <li class="rating">Rating: <%= restaurant.rating %> /5</li>
+            <li class="price">Price: <%= restaurant.price %></li>
+            <li class="address"><%= restaurant.address %></li>
+            <li class="phone"><%= restaurant.phoneNumber %></li>
+            <li class="price"><a href="<%= restaurant.url %>" style="color: darkcyan">Visit Yelp</a></li>
         </ul>
     </div>
 </div>
