@@ -27,19 +27,27 @@ client.on('error', err => console.error(err));
 
 // routes
 app.get('/', getPopular);
+<<<<<<< HEAD
 app.post('/search', handleLocation);
 app.get('/dashboard', handleDashboard);
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
 // app.post('')
+=======
+app.post('/search', handleSearch);
+app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
+app.get('/location', handleLocation);
+app.get('/events', handleEvents);
+app.get('/restaurants', handleRestaurants);
+// app.get('/popular', getPopular);
+>>>>>>> 11f3c555120d734ed0c01972057a7f67972dad48
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
 // internal modules
 const getLocation = require('./modules/location');
 const getEvents = require('./modules/events');
 const getRestaurants = require('./modules/restaurants');
-
 
 // We switched app.get('/'loadHome') with ('/'getPopular) to load SQL Data
 // function loadHome(req, res) {
@@ -48,16 +56,20 @@ const getRestaurants = require('./modules/restaurants');
 
 // route handler for location
 function handleLocation(req, res) {
+<<<<<<< HEAD
   getLocation(req.body.city_neighborhood, client, superagent)
+=======
+  getLocation(req.body.search, client, superagent)
+>>>>>>> 11f3c555120d734ed0c01972057a7f67972dad48
     .then(location => res.send(location))
     .catch(error => handleError(error, res));
 }
 
 // route handler for events
-function handleEvents(req, res){
+function handleEvents(req, res) {
   getEvents(req.query.location, superagent)
     .then(events => {
-      res.render('pages/events', {events: events});
+      res.render('pages/events', { events: events });
     })
     .catch(error => handleError(error, res));
 }
@@ -67,33 +79,30 @@ function handleRestaurants(req, res) {
   getRestaurants(req.query.location, superagent)
     .then(restaurants => {
       // res.send(restaurants)
-      res.render('pages/restaurants', {restaurants: restaurants});
+      res.render('pages/restaurants', { restaurants: restaurants });
     })
     .catch(error => handleError(error, res));
 }
 
+
+
 // route handler for search location entered by user
 function handleSearch(req, res) {
-  // TODO: need to add GEO_CODE API hit then render
-  // res.send(req.body);
-  res.render('pages/new', {
-    'search_query': 'banff',
-    'formatted_query': 'Banff, AB, Canada',
-    'latitude': 51.1783629,
-    'longitude': -115.5707694
-  });
-}
 
+  getLocation(req.body.search, client, superagent)
+    .then(location => res.render('pages/dashboard', location))
+    .catch(error => handleError(error, res));
+}
 
 //DATABASE HANDLER/////////////////
 //////////// if the search is not in the sql database
 
-function getPopular (req, res){
+function getPopular(req, res) {
   let SQL = `SELECT * FROM popular`;
   return client.query(SQL)
     .then(places => {
       console.log(places.rows);
-      res.render('pages/index', { popularLocations: places.rows})
+      res.render('pages/index', { popularLocations: places.rows })
     })
 
 }
@@ -114,12 +123,21 @@ function getPopular (req, res){
 // }, ${location.longitude})
 //     RETURNING id;
 // `;
+<<<<<<< HEAD
 
 //   return client.query(insertSQL).then(results => {
 //     // console.log('location results from db', results);
 
 //     // console.log('location results id', results.rows[0].id);
 
+=======
+
+//   return client.query(insertSQL).then(results => {
+//     // console.log('location results from db', results);
+
+//     // console.log('location results id', results.rows[0].id);
+
+>>>>>>> 11f3c555120d734ed0c01972057a7f67972dad48
 //     location.id = results.rows[0].id;
 
 //     // console.log(' new location object ', location);
@@ -132,8 +150,9 @@ function getPopular (req, res){
 //////////////////////////
 
 function handleDashboard(req, res) {
-  res.render('pages/dashboard', {tbd: 'Coming Soon'});
+  res.render('pages/dashboard', { tbd: 'Coming Soon' });
 }
+
 
 
 function handleError(error, response) {
