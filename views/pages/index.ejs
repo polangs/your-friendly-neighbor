@@ -5,21 +5,50 @@
     <title>Destination Top 10</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/styles/reset.css" />
-      <link rel="stylesheet" href="/styles/base.css" />
+      <!-- <link rel="stylesheet" href="/styles/base.css" />
       <link rel="stylesheet" href="/styles/layout.css" />
       <link rel="stylesheet" href="/styles/modules.css" />
-      <link rel="stylesheet" href="/styles/icons.css"/> 
+      <link rel="stylesheet" href="/styles/icons.css"/>  -->
+     
+      <!-- this is just here because i don't like working in SMACCS initially -->
+      <link rel="stylesheet" href="/styles/styles.css"/> 
   </head>
 
+  <body id="index">
+    
+    <!-- MAIN TITLE -->
+    <h1 id="title">Title</h1>
+
+<!-- SUBTITLE WHERE WOULD YOU LIKE TO GO TODAY -->
+
+    <main id="main">
+
+      <form id="container" action="/search" method="post">
+        
+        <!--NEW SEARCH OPTION  -->
+    
+
   <body>
-    <h1>Where would you like to go today?</h1>
     <main>
-      <form action="/search" method="post">
-        <label> Enter a city or a neighnorhood
-          <input type="text" name="search">
-          <button type="submit">Search!</button>
+      <h3 id="subtitle"> Where would you like to go today?</h3>
+      <label id="newsearch"> Enter a city or a neighborhood
+        <input type="text" name="city-neighborhood">
+        <button id="button" type="submit">Search!</button>
+
         </label>
+        <p> OR </p>
+        <!-- POPULAR DESTINATIONS OPTION -->
+        <select id="dropdown">
+          <option value="default">Select a Popular Destination</option>
+        </select>
+
       </form>
    </main>
+
+   <!-- JUST A PLACE HOLDER IN CASE WE WANT A FOOTER -->
+   <footer id="footer">
+     <!-- Filler Filler Turtle Eater -->
+   </footer>
+   
   </body>
 </html>
