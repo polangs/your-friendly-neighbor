@@ -12,14 +12,16 @@
 </head>
 <% events.forEach(event => { %>
     <div class="tile">
-        
+
+        <img src="<%= event.image %>"/>
+
         <div class="container">
             <ul>
                 <li class="list"><%= event.link %></li>
                 <li class="list"><%= event.event_name%></li>
                 <li class="list"><%= event.event_date %></li>
                 <li class="list"><%= event.summary %></li>
-                <li class="list"><%= event.image %></li>
+
                 
             </ul>
         </div>
