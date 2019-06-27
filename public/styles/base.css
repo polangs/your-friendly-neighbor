@@ -2,3 +2,8 @@ body {
     background-color: rgb(66, 177, 185);
     text-align-last: center;
 } 
+
+img {
+    width: 50px;
+    max-width: 50%;
+}
