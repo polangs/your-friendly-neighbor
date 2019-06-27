@@ -18,7 +18,7 @@ body {
    grid-row-gap: 15px;
    grid-column-gap: 10px;
  } 
-
+/* 
  .PikeMarket{
   width: 350px;
   box-shadow: 0 0 10px #4b4b4b;
@@ -27,7 +27,7 @@ body {
   padding: 15px;
   margin-left: 35px;
   background-color: rgb(245, 245, 245);
-}
+} */
 
 #title {
   text-align: center;
@@ -121,8 +121,8 @@ button:hover{
     
   } 
    */
-
-  .PikeMarket{
+ 
+  /* .PikeMarket{
     width: 450px;
     box-shadow: 0 0 10px #4b4b4b;
     grid-column: 1 / 3;
@@ -130,7 +130,7 @@ button:hover{
     padding: 12px;
     background-color: rgb(245, 245, 245);
 
-  }
+  } */ 
   
   #title {
     text-align: center;
