@@ -83,7 +83,7 @@ function handleSearch(req, res) {
 }
 
 //DATABASE HANDLER/////////////////
-//////////// if the search is not in the sql database
+// if the search is not in the sql database
 
 function getPopular(req, res) {
   let SQL = `SELECT DISTINCT formatted_query FROM popular ORDER BY formatted_query LIMIT 10`;
