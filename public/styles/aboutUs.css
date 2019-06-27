@@ -1,0 +1,84 @@
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px;
+  font-family: 'Open Sans', 'sans-serif';
+  background-color: #fff;
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+p {
+  margin: 0 0 1em 0;
+}
+
+.media {
+  margin-bottom: 2em;
+  border: 2px solid #444;
+  padding: 10px;
+  display: grid;
+  /* grid-template-columns: repeat(7);
+  grid-template-rows:  minmax(10px, auto);
+  grid-row-gap: 15px; */
+}
+
+.media > .title { grid-area: title; }
+.media > .img { grid-area: img; }
+.media > .content { grid-area: bd; }
+.media > .footer { grid-area: ft; }
+
+.media {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "title"
+    "img"
+    "bd"
+    "ft";
+}
+
+
+@media (min-width: 600px) {
+
+  /* clearfix*/
+  .media:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .media > .media {
+    margin-left: 160px;
+    clear: both;
+  }
+
+  .media .img {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 150px;
+  }
+  
+  .media .footer {
+    background-color: #eee;
+    padding: 10px;
+  }
+
+  .media.media-flip .img {
+    float: right;
+    margin: 0 0 0 10px;
+  }
+
+  .media > * {
+    margin: 0 0 0 160px;
+  }
+
+  .media.media-flip > * {
+    margin: 0 160px 0 0;
+  }
