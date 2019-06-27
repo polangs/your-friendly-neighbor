@@ -33,6 +33,7 @@ app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard 
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
+app.get('/about', aboutUs);
 // app.get('/popular', getPopular);
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
@@ -80,6 +81,11 @@ function handleSearch(req, res) {
   getLocation(req.body.search, client, superagent)
     .then(location => res.render('pages/dashboard', location))
     .catch(error => handleError(error, res));
+}
+
+//route handler for about us page
+function aboutUs(req, res){
+  res.render('pages/about');
 }
 
 //DATABASE HANDLER/////////////////
