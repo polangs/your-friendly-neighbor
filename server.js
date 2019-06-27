@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 app.get('/', loadHome);
 // app.get('/', getPopular);
 app.post('/search', handleSearch);
-app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
+// app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard page for now
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
@@ -46,59 +46,93 @@ function loadHome(req, res) {
   res.render('pages/index');
 }
 
+// route handler for location
+function handleLocation(req, res) {
+  getLocation(req.body.search, superagent)
+    .then(location => res.send(location))
+    .catch(error => handleError(error, res));
+}
+
 // route handler for events
-function handleEvents(req, res){
+function handleEvents(req, res) {
   getEvents(req.query.location, superagent)
-  .then(events => {
-    res.render('pages/events', {events: events});
-  })
-  .catch(error => handleError(error, res));
+    .then(events => {
+      res.render('pages/events', { events: events });
+    })
+    .catch(error => handleError(error, res));
 }
 
 // route handler for restaurants based on location
 function handleRestaurants(req, res) {
   getRestaurants(req.query.location, superagent)
-  .then(restaurants => {
-    // res.send(restaurants)
-    res.render('pages/restaurants', {restaurants: restaurants});
-  })
-  .catch(error => handleError(error, res));
-}
-
-// route handler for location
-function handleLocation(req, res) {
-  getLocation(req.query.data, superagent)
-    .then(location => res.send(location))
+    .then(restaurants => {
+      // res.send(restaurants)
+      res.render('pages/restaurants', { restaurants: restaurants });
+    })
     .catch(error => handleError(error, res));
 }
 
+
+
 // route handler for search location entered by user
 function handleSearch(req, res) {
-  // TODO: need to add GEO_CODE API hit then render
-  console.log(req.body.search);
-  let formattedQuery = req.body.search;
-  res.render('pages/new', {formattedQuery});
+
+  getLocation(req.body.search, superagent)
+    .then(location => res.render('pages/new', location))
+    .catch(error => handleError(error, res));
 }
 
-//DATABASE HANDLER/////////////////
 //////////// if the search is not in the sql database
-// function getPopular (req, res){
+
+// function getPopular(req, res) {
 //   let SQL = `SELECT * FROM popular`;
 //   return client.query(SQL)
 //     .then(places => {
 //       console.log(places.rows);
-//       res.render('pages/index', { popularLocations: places.rows})
+//       res.render('pages/index', { popularLocations: places.rows })
 //     })
+
 // }
 
-// function getPopular(){
-//   let SQL = 'SELECT DISTINCT p FROM books ORDER BY bookshelf;';
+// function cacheLocation(location, client) {
+//   // console.log('caching query);
+//   const SQL = `INSERT INTO popular (query, formatted_query, latitude, longitude) VALUES (${
+//     location.query}, ${location.formatted_query}, ${location.latitude}, ${location.longitude}`;
+//   return client.query(SQL).then(results => {
+//     return location;
+//   });
+// }
+// function cacheLocation(location, client) {
+//   const insertSQL = `
+//     INSERT INTO locations (search_query, formatted_query, latitude, longitude)
+//     VALUES('${location.search_query}','${location.formatted_query}', ${
+//   location.latitude
+// }, ${location.longitude})
+//     RETURNING id;
+// `;
+
+//   return client.query(insertSQL).then(results => {
+//     // console.log('location results from db', results);
+
+//     // console.log('location results id', results.rows[0].id);
+
+//     location.id = results.rows[0].id;
+
+//     // console.log(' new location object ', location);
+
+//     return location;
+//   });
 // }
 
-function handleDashboard(req, res) {
-  res.render('pages/dashboard', {tbd: 'Coming Soon'});
-}
+
+//////////////////////////
+
+// function handleDashboard(req, res) {
+//   res.render('pages/dashboard', { tbd: 'Coming Soon' });
+// }
     
+
+
 
 
 function handleError(error, response) {
