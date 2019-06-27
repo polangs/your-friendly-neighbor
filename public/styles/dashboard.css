@@ -1,29 +1,23 @@
 body {
-  background-image: url("img.css/abstract-astrology-astronomy-2212858.jpg");
   font-family: Georgia, 'Times New Roman', Times, serif;
-  text-align-last: center;
-  color: whitesmoke
-  
+  background-color: #d1cece;
 } 
-footer{
-  color: white;
-  font-size: 1.5em;
-}
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(6);
-  grid-template-rows:  minmax(100px, auto);
-  grid-column-gap: 10px;
-  grid-row-gap: 15px; 
-  border: .1 solid rgb(235, 11, 11);
+  grid-template-columns: repeat(7);
+  grid-template-rows:  minmax(10px, auto);
+  grid-row-gap: 15px;
  
 } 
-/* button {
+
+button {
   position: relative;
-  background-color: rgba(162, 162, 165, 0.705);
+  background-color: rgba(255, 255, 255, 0.89);
   border-radius: 5px; 
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
   color: rgb(14, 13, 13);
   padding: 10px;
   width: 100px;
@@ -31,21 +25,19 @@ footer{
   transition-duration: 0.4s;
   overflow: hidden;
   cursor: pointer;
-  float: left;
-
 }
 
 button:after {
   content: "";
-  background: rgb(98, 98, 98);
+  background: rgb(170, 182, 204);
   display: block;
   position: absolute;
   padding-top: 500%;
-  padding-left: 350%;
+  padding-left: 350%; 
   margin-left: -20px!important;
   margin-top: -120%;
   opacity: 0;
-  transition: all 0.8s
+  transition: all 0.8s;
 }
 
 button:active:after {
@@ -53,105 +45,181 @@ button:active:after {
   margin: 0;
   opacity: 1;
   transition: 0s
-} */
+} 
+
+#homeButton {
+  grid-column: 1;
+  grid-row: 1;
+  width: 60px;
+  font-size: 12px;
+}
 
 .image {
-  grid-column: 3 / 5;
-  grid-row: 1 / 4;
-  height: 350px;
-  line-height: 350px;
-  border: 2px solid black;
-  font-size: 30px;
-  font-weight: bold;
-  align-self: center;
-  /* background-color: whitesmoke; */
-}
-.icon1 {
+  max-width: 100%;
   grid-column: 1 / 4;
-  grid-row: 4 / 6;
-  border: 2px solid black;
-  align-self: center;
+  grid-row: 2 / 3;
+  padding: 10px;
+  background-color: rgb(245, 245, 245);
+  margin: 0 auto;
+  box-shadow: 0 0 10px #4b4b4b;
+  
+}
+
+.PikeMarket{
+  width: 350px;
+}
+
+/* Hiding restaurant */
+.restaurant {
+  color: #d1cece;  
+}
+
+ /* Hiding events */
+.events {
+  color: #d1cece;
+}
+
+.icon1 {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0 auto;
 } 
 
 .icon2 {
-  grid-column: 4 / 6;
-  grid-row: 4 / 6;
-  border: 2px solid black;
-  align-self: center;
-
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0 auto;
 }
 
 .icon3{
-  grid-column: 1 / 4;
-  grid-row: 7 / 9;
-  border: 2px solid black;
-  align-self: center;
-
+  grid-column: 3;
+  grid-row: 4;
+  margin: 0 auto;
 }
 
 .icon4{
-  grid-column: 4 / 6;
-  grid-row: 7 / 9;
-  border: 2px solid black;
-  align-self: center;
+  grid-column: 1;
+  grid-row: 5;
+  margin: 0 auto;
+}
 
+.icon5{
+  grid-column: 3;
+  grid-row: 5;
+  margin: 0 auto;
 }
 
 
-  @media(min-width: 767px) {
+footer{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 30px;
+  padding: 8px;
+}
+
+.buttonIcon{
+  width: 60px; 
+  margin: 0 auto;
+}
+
+
+
+@media(min-width: 767px) {
 
 .grid {
   display: grid;
-  grid-template-columns: 5;
-  grid-template-rows:  minmax(10px, auto);
-  background-image: url("img.css/abstract-astrology-astronomy-2212858.jpg");       
-  border: 1px solid rgb(250, 4, 4);  
-  } 
+  grid-template-columns: 6;
+  grid-template-rows:  minmax(10px, auto); 
+
+} 
 
 .image {
-  grid-column: 1 / 7;
-  grid-row: 1;
-  border: 2px solid black;
-  }
-    
-/* .restaurant {
-  grid-column: 3 / 6;
-  grid-row: 3 / 7;
-  border: 2px solid black       
+  max-width: 100%;
+  grid-column: 2 / 5;
+  grid-row: 2 / 5;
+  padding: 10px;
+  background-color: rgb(245, 245, 245);
+  margin: 0 auto;
+  box-shadow: 0 0 10px #4b4b4b;
+  
+}
+
+.PikeMarket{
+  width: 450px;
+}
+
+#homeButton {
+  grid-column: 1;
+  grid-row: 2;
+  margin-left: 25px;
+}
+
+.restaurant {
+  grid-column: 4 / 5;
+  grid-row: 5 / 6;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  color: black;
+  box-shadow: 0 0 7px #4b4b4b;   
   }
 
 .events {
-  grid-column: 1 / 3;
-  grid-row: 3 / 7;
-    height: 450px;
-    line-height: 250px;
-  border: 2px solid black;
-} */
-.icon1 {
-  grid-column: 4 / 5;
-  grid-row: 4 / 5;
-  border: 2px solid black;
-  } 
+  grid-column: 2 / 3;
+  grid-row: 5 / 6;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  margin: 0 auto;
+  background-color:whitesmoke;
+  color: black;
+  box-shadow: 0 0 7px #4b4b4b;  
 }
 
+.icon1 {
+  grid-column: 1 / 2;
+  grid-row: 6 / 7; 
+  margin: 0 auto;
+} 
 
-/* .icon2 {
-  grid-column: 5 / 6;
-  grid-row: 5 / 6;
-  border: 2px solid black;
+.icon2{
+  grid-column: 2 / 3;
+  grid-row: 6 / 7;
+  margin: 0 auto;
 }
 
 .icon3{
-  grid-column: 6 / 7;
-  grid-row: 1 / 7;
-  border: 2px solid black;
+  grid-column: 3 / 4;
+  grid-row: 6 / 7;
+  margin: 0 auto;
 }
 
 .icon4{
-  grid-column: 1 / 7;
-  grid-row: 7 / 8;
-  border: 2px solid black;
-} */
+  grid-column: 4 / 5;
+  grid-row: 6 / 7;
+  margin: 0 auto;
+} 
+
+.icon5{
+  grid-column: 5 / 6;
+  grid-row: 6 / 7;
+  margin: 0 auto;
+} 
+
+.buttonIcon{
+  width: 100px; 
+}
+
+footer{
+  font-size: 16px;
+  text-align: center;
+  padding: 8px;
+}
 
 
+}
 
