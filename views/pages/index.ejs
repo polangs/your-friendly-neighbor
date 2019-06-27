@@ -37,11 +37,19 @@
 
         </label>
         <p> OR </p>
+      </form>
         <!-- POPULAR DESTINATIONS OPTION -->
-        <select id="dropdown">
+<!-- location. = in select area -->
+      <form action="/past_search" method="post">
+        
+        <select id="dropdown" name="search" required>
           <option value="default">Select a Popular Destination</option>
-        </select>
-
+          <!-- <% popularLocations.sort((a, b) => a.formatted_query - b.formatted_query); %> -->
+          <% popularLocations.forEach(location => { %>
+          <option value="<%= location.query %>"><%= location.formatted_query %></option>
+          <% }) %>
+        </select>  
+          <button id="button2" type="submit">Search!</button> 
       </form>
    </main>
 
