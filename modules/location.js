@@ -11,15 +11,16 @@ function getLocation(query, client, superagent) {
     .then(location => {
       return cacheLocation(location, client)
     });
-
 }
 
 function Location(query, geoData) {
   console.log(query, geoData);
-  this.query = query; //formerly this.search_query = query; in JSON file as well
+  this.query = query;
   this.formatted_query = geoData.formatted_address;
+  this.name = geoData.address_components[0].long_name;
   this.latitude = geoData.geometry.location.lat;
   this.longitude = geoData.geometry.location.lng;
+  this.map = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyBFwYFVJcxEDhqJPLXsEFGeLZLaa0RtCbQ`;
 }
 
 function cacheLocation(location, client) {
