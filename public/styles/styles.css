@@ -3,14 +3,16 @@ body {
   
 } 
 
-.BGI{
+  .BGI{
   z-index: -500;
   opacity: .4;
   position: fixed;
 
-}
+} 
+/* /////////////////////////////TABLET VIEW////////////////////////////////////////////////// */
 
-@media(min-width: 415 max-width: 767px) {
+
+@media(min-width: 415) and (max-width: 767px) {
 
   #index {
    display: grid;
@@ -99,6 +101,11 @@ margin: 0 auto;
 }
  
 }
+
+
+
+/* ///////////////////////////////FULL SCREEN/////////////////////////////////////////////////// */
+
 
 @media(min-width: 768px) {
 
@@ -204,22 +211,19 @@ margin: 0 auto;
   }
 
 }
-
+/* ///////////////////////////////MOBILE VIEW///////////////////////////////////////// */
 @media(max-width: 414px) {
   #index {
+    /* background-image: url(//styles/img/map-image.jpg); */
     height: 600px;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 50px 20% 20% 20% 50px;
-
   }
 
 
   #title {
     text-align: center;
-    /* line-height: 30px;
-    font-weight: 600;
-    font-size: 30px;   */
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 3;
@@ -236,7 +240,6 @@ margin: 0 auto;
   grid-row-end: 5;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
   margin: 0 auto;
  }
  
@@ -244,41 +247,28 @@ margin: 0 auto;
  #subtitle {
   padding-top: 300px;
   padding-bottom: 50px;
-  /* margin: 0px auto; */
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
   text-align: center;
-  /* margin-top: 10px;
-  font-size: 22px;
-  font-weight: bold; */
 }   
 
   
 #fields {
- /* display: inline; */
- /* flex-direction: column; */
-/* align-content: center; */
+
 }
 
 #newsearch {
-    /* text-align: right; */
-    /* grid-column-start: 2;
-    grid-column-end: 4; */
-
 
   }
 
 #container {
-  /* display: inline; */
-    /* flex-direction: row; */
   padding-bottom: 30px;
 }
 
 
 #input {
-  /* width:150px; */
   display:inline;
 }
 
@@ -312,7 +302,6 @@ margin: 0 auto;
 }
 
 #aboutus{
-  border: 1px solid black;
-  width: 100px;
+
 }
 }
