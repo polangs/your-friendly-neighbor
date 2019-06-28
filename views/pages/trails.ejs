@@ -16,20 +16,20 @@
 
 <body class="addPages">
 
-  <% trails.forEach(trail => { %>
+  <% for (let i = 0; i < 10; i++) { %>
   <div class="tile">
-    <img src="<%= trail.image %>" />
+    <img src="<%= trails[i].image %>" />
     <div class="container">
       <ul>
-        <li class="name"><%= trail.name %></li>
-        <li class="rating">Rating: <%= trail.rating %> /5</li>
-        <li class="address"><%= trail.address %></li>
-        <li class="phone"><%= trail.phoneNumber %></li>
-        <li class="price"><a href="<%= trail.url %>" style="color: darkcyan">Visit Yelp</a></li>
+        <li class="name"><%= trails[i].name %></li>
+        <li class="rating">Rating: <%= trails[i].rating %> /5</li>
+        <li class="address"><%= trails[i].address %></li>
+        <li class="phone"><%= trails[i].phoneNumber %></li>
+        <li class="price"><a href="<%= trails[i].url %>" style="color: darkcyan">Visit Yelp</a></li>
       </ul>
     </div>
   </div>
-  <% }); %>
+  <% }; %>
 </body>
 
 </html>
