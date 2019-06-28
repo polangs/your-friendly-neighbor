@@ -16,17 +16,16 @@
 
 <body class="addPages">
 
-  <% bars.forEach(bar => { %>
+  <% trails.forEach(trail => { %>
   <div class="tile">
-    <img src="<%= bar.image %>" />
+    <img src="<%= trail.image %>" />
     <div class="container">
       <ul>
-        <li class="name"><%= bar.bar_name %></li>
-        <li class="rating">Rating: <%= bar.rating %> /5</li>
-        <li class="price">Price: <%= bar.price %></li>
-        <li class="address"><%= bar.address %></li>
-        <li class="phone"><%= bar.phoneNumber %></li>
-        <li class="price"><a href="<%= bar.url %>" style="color: darkcyan">Visit Yelp</a></li>
+        <li class="name"><%= trail.name %></li>
+        <li class="rating">Rating: <%= trail.rating %> /5</li>
+        <li class="address"><%= trail.address %></li>
+        <li class="phone"><%= trail.phoneNumber %></li>
+        <li class="price"><a href="<%= trail.url %>" style="color: darkcyan">Visit Yelp</a></li>
       </ul>
     </div>
   </div>
