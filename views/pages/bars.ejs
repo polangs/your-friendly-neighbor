@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Hind+Guntur|Rubik+Mono+One|Permanent+Marker|Shadows+Into+Light|Stylish&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+
+</head>
+<body class="addPages">
+
+<% bars.forEach(bar => { %>
+<div class="tile">
+    <img src="<%= bar.image %>"/>
+    <div class="container">
+        <ul>
+            <li class="name"><%= bar.bar_name %></li>
+            <li class="rating">Rating: <%= bar.rating %> /5</li>
+            <li class="price">Price: <%= bar.price %></li>
+            <li class="address"><%= bar.address %></li>
+            <li class="phone"><%= bar.phoneNumber %></li>
+            <li class="price"><a href="<%= bar.url %>" style="color: darkcyan">Visit Yelp</a></li>
+        </ul>
+    </div>
+</div>
+<% }); %>
+</body>
+
+</html>

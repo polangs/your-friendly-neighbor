@@ -33,6 +33,7 @@ app.get('/dashboard', handleDashboard); // created for Paula to style Dashboard 
 app.get('/location', handleLocation);
 app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
+app.get('/bars', handleBars);
 // app.get('/popular', getPopular);
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
 
@@ -40,6 +41,7 @@ app.get('/restaurants', handleRestaurants);
 const getLocation = require('./modules/location');
 const getEvents = require('./modules/events');
 const getRestaurants = require('./modules/restaurants');
+const getBars = require('./modules/bars');
 
 // We switched app.get('/'loadHome') with ('/'getPopular) to load SQL Data
 // function loadHome(req, res) {
@@ -71,6 +73,15 @@ function handleRestaurants(req, res) {
     })
     .catch(error => handleError(error, res));
 }
+
+function handleBars(req, res) {
+  getBars(req.query.location, superagent)
+    .then(bars => {
+      res.render('pages/bars', { bars: bars});
+    })
+    .catch(error => handleError(error, res));
+}
+
 
 
 
