@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/modules.css" />
     <link rel="stylesheet" href="/styles/icons.css" />
-
+    <a href="/"><button id="homeButton" type="home">Home</button></a>
 </head>
 <body class="addPages">
 
 <% restaurants.forEach(restaurant => { %>
 <div class="tile">
-    <a href="/"><button id="homeButton" type="home">Home</button></a>
+    
     <img src="<%= restaurant.image %>"/>
     <div class="container">
         <ul>
