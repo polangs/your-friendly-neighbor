@@ -35,6 +35,7 @@ app.get('/events', handleEvents);
 app.get('/restaurants', handleRestaurants);
 app.get('/bars', handleBars);
 app.get('/about', aboutUs);
+app.get('/trails', handleTrails);
 
 // app.get('/popular', getPopular);
 // app.post('/popular-queries', 'write a sql function here to find popular past searches and search again from the selection')
@@ -44,6 +45,7 @@ const getLocation = require('./modules/location');
 const getEvents = require('./modules/events');
 const getRestaurants = require('./modules/restaurants');
 const getBars = require('./modules/bars');
+const getTrails = require('./modules/trails');
 
 // We switched app.get('/'loadHome') with ('/'getPopular) to load SQL Data
 // function loadHome(req, res) {
@@ -84,7 +86,13 @@ function handleBars(req, res) {
     .catch(error => handleError(error, res));
 }
 
-
+function handleTrails(req, res) {
+  getTrails(req.query.location, superagent)
+    .then(trails => {
+      res.render('pages/trails', { trails: trails });
+    })
+    .catch(error => handleError(error, res));
+}
 
 
 // route handler for search location entered by user

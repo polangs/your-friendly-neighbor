@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css?family=Indie+Flower|Hind+Guntur|Rubik+Mono+One|Permanent+Marker|Shadows+Into+Light|Stylish&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/modules.css" />
+  <link rel="stylesheet" href="/styles/icons.css" />
+
+</head>
+
+<body class="addPages">
+
+  <% for (let i = 0; i < 10; i++) { %>
+  <div class="tile">
+    <img src="<%= trails[i].image %>" />
+    <div class="container">
+      <ul>
+        <li class="name"><%= trails[i].name %></li>
+        <li class="rating">Rating: <%= trails[i].rating %> /5</li>
+        <li class="address"><%= trails[i].address %></li>
+        <li class="phone"><%= trails[i].phoneNumber %></li>
+        <li class="price"><a href="<%= trails[i].url %>" style="color: darkcyan">Visit Yelp</a></li>
+      </ul>
+    </div>
+  </div>
+  <% }; %>
+</body>
+
+</html>
