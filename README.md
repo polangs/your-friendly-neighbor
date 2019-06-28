@@ -38,8 +38,8 @@
 Paula Cruz -  https://github.com/polangs  - linkedin/paulaaireencruz
 Sara Haynes - https://github.com/SaraJHaynes  - linkedin/sarajhaynes 
 Trae Bennet - https://github.com/TraeBenn22  - linkedin/trae-bennett-401329b2
-Alex Reid - https://github.com/surfwalker  -  linkedin/
-Matthew Heyert - https://github.com/heyerthb - linkedin/matthew-heyert
+Alex Reid - https://github.com/surfwalker  -  linkedin/alex-reid-2a4139104
+Matthew Heyert - https://github.com/heyerthb 
 ***  
 ### Heroku Link: https://city-surveyor.herokuapp.com/
 ***
