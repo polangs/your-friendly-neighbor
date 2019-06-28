@@ -35,11 +35,11 @@
 ***
 
 ### Authors  
-Paula Cruz -  https://github.com/polangs  
-Sara Haynes - https://github.com/SaraJHaynes  
-Trae Bennet - https://github.com/TraeBenn22  
-Alex Reid - https://github.com/surfwalker   
-Matthew Heyert - https://github.com/heyerthb 
+Paula Cruz -  https://github.com/polangs  - linkedin.com/in/paulaaireencruz
+Sara Haynes - https://github.com/SaraJHaynes  - linkedin.com/in/sarajhaynes/ 
+Trae Bennet - https://github.com/TraeBenn22  - linkedin.com/in/trae-bennett-401329b2
+Alex Reid - https://github.com/surfwalker  -  
+Matthew Heyert - https://github.com/heyerthb - linkedin.com/in/matthew-heyert/
 ***  
 ### Heroku Link: https://city-surveyor.herokuapp.com/
 ***
