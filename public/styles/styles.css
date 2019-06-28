@@ -1,5 +1,5 @@
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
 } 
 
 .BGI{
@@ -8,8 +8,8 @@ body {
   position: fixed;
 
 }
-
-@media(max-width: 767px) {
+/* 
+@media(min-width: 415 max-width: 767px) {
 
   #index {
    display: grid;
@@ -83,7 +83,7 @@ margin: 0 auto;
   display: inline;
 }
 
-#button {
+.button {
   padding: 2px;
   width: 60px;
   font-size: 12px;
@@ -93,7 +93,7 @@ margin: 0 auto;
   text-align: center;
 }
 
-button:hover{
+.button:hover{
   color:rgb(172, 170, 170);
 }
  
@@ -151,7 +151,7 @@ button:hover{
     text-align: center;
     margin-top: 10px;
     font-size: 22px;
-    font-weight: bold;
+    /* font-weight: bold; */
   }   
 
    #main {
@@ -170,7 +170,7 @@ button:hover{
     text-align: center;
     font-size: 19px;
     line-height: 55px;
-    font-weight: bold;
+    /* font-weight: bold; */
     height: 55px;
     padding: 5px;
   }
@@ -187,7 +187,7 @@ button:hover{
     display: inline;
   }
  
-  #button {
+  .button {
     padding: 2px;
     width: 55px;
     font-size: 12px;
@@ -197,9 +197,59 @@ button:hover{
     text-align: center;
 
   }
-  button:hover{
+  .button:hover{
     color: rgb(172, 170, 170);
   }
 
-}
+} */
 
+@media(max-width: 414px) {
+  #index {
+    height: 812px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+
+  }
+
+
+  #title {
+    text-align: center;
+    /* line-height: 30px;
+    font-weight: 600;
+    font-size: 30px;   */
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 4;
+ }
+
+
+ #main {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+ }
+ 
+ 
+ #subtitle {
+  padding-top: 50px;
+  /* margin: 0px auto; */
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  text-align: center;
+  /* margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold; */
+}   
+
+
+
+}

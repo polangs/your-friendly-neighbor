@@ -25,39 +25,30 @@
 
     <main id="main">
 
-      <form id="container" action="/search" method="post">
-        
-        <!--NEW SEARCH OPTION  -->
-    
-
-  
-    <main>
+    <form id="container" action="/search" method="post">
+        <!-- <div id="image"><img src="/styles/img/PikeMarket.jpeg" alt="fremont" class="PikeMarket"></div> -->
       
-      <div id="image"><img src="/styles/img/PikeMarket.jpeg" alt="fremont" class="PikeMarket"></div>
-      
-      <h3 id="subtitle"> Where would you like to go today?</h3>
+      <h3 id="subtitle">Where would you like to go today?</h3>
       <label id="newsearch"> Enter a City or Neighborhood:</label>
-        <div class="input"><input type="text" name="search"><button id="button" type="submit">Search</button></div>
-        
-
-      
-        <!-- <p> OR </p> -->
-      </form>
+        <div class="input"><input type="text" name="search">
+          <button class="button" type="submit">Search</button>
+      </div>
+    </form>
         <!-- POPULAR DESTINATIONS OPTION -->
-<!-- location. = in select area -->
 
-      <form action="/past_search" method="post">
+    <form action="/past_search" method="post">
         
-        <select id="dropdown" name="search" required>
-          <option value="default">Select a Popular Destination</option>
-          <!-- <% popularLocations.sort((a, b) => a.formatted_query - b.formatted_query); %> -->
-          <% popularLocations.forEach(location => { %>
-          <option value="<%= location.query %>"><%= location.formatted_query %></option>
-          <% }) %>
-        </select>  
-          <button id="button2" type="submit">Search!</button> 
+      <select id="dropdown" name="search" required>
+        <option value="default">Select a Popular Destination</option>
+        <!-- <% popularLocations.sort((a, b) => a.formatted_query - b.formatted_query); %> -->
+        <% popularLocations.forEach(location => { %>
+        <option value="<%= location.query %>"><%= location.formatted_query %></option>
+        <% }) %>
+        <!-- <button class="button" type="submit">Search!</button>  -->
+      </select>  
+        <button class="button" type="submit">Search!</button> 
 
-      </form>
+    </form>
    </main>
 
    <!-- JUST A PLACE HOLDER IN CASE WE WANT A FOOTER -->
