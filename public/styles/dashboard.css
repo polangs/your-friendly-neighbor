@@ -1,226 +1,261 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
-
-} 
-
-.BGI{
+ 
+ }
+ 
+ .BGI{
   z-index: -500;
   opacity: .4;
   position: fixed;
-} 
-
-.grid {
+ }
+ 
+ .grid {
   display: grid;
   grid-template-columns: repeat(7);
   grid-template-rows:  minmax(10px, auto);
   grid-row-gap: 15px;
  
-} 
-
-button {
+ }
+ 
+ button {
   position: relative;
   background-color: rgba(255, 255, 255, 0.89);
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: 12px;
   font-weight: 600;
   text-align: center;
   color: rgb(14, 13, 13);
   padding: 10px;
   width: 100px;
-  -webkit-transition-duration: 0.4s; 
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   overflow: hidden;
   cursor: pointer;
-}
-
-button:after {
+ }
+ 
+ button:after {
   content: "";
   background: rgb(170, 182, 204);
   display: block;
   position: absolute;
   padding-top: 500%;
-  padding-left: 350%; 
+  padding-left: 350%;
   margin-left: -20px!important;
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s;
-}
-
-button:active:after {
+ }
+ 
+ button:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
   transition: 0s
-} 
-
-#homeButton {
+ }
+ 
+ #homeButton {
   grid-column: 1;
   grid-row: 1;
   width: 60px;
   font-size: 12px;
-}
-
-h1{
+ }
+ 
+ h3{
   text-align: center;
-}
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 250px;
+ }
 
-.image {
+ h1{
+   display: none;
+   background-color: blueviolet;
+ }
+
+ .image {
   max-width: 100%;
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  padding: 10px;
-  background-color: rgb(245, 245, 245);
+  /* padding: 10px; */
+  /* background-color: rgb(245, 245, 245); */
   margin: 0 auto;
+  margin-top: 30px;
   box-shadow: 0 0 10px #4b4b4b;
-}
+ }
 
-.PikeMarket{
-  width: 450px;
-}
-
-.icon1 {
-  grid-column: 1;
-  grid-row: 4;
+ .map {
+  max-width: 100%;
+  grid-column: 1 / 4;
+  grid-row: 3 / 5;
+  /* padding: 10px; */
+  /* background-color: rgb(245, 245, 245); */
   margin: 0 auto;
-} 
+  margin-top: 20px;
+  box-shadow: 0 0 10px #4b4b4b;
+ 
+ }
+ 
+ .PikeMarket{
+  width: 350px;
+ }
 
-.icon2 {
+ .icon1 {
+  grid-column: 1;
+  grid-row: 6;
+  margin: 0 auto;
+ }
+ 
+ .icon2 {
   grid-column: 2;
-  grid-row: 4;
+  grid-row: 6;
   margin: 0 auto;
-}
-
-.icon3{
+ }
+ 
+ .icon3{
   grid-column: 3;
-  grid-row: 4;
+  grid-row: 6;
   margin: 0 auto;
-}
-
-.icon4{
+ }
+ 
+ .icon4{
   grid-column: 1;
-  grid-row: 5;
+  grid-row: 7;
   margin: 0 auto;
-}
-
-
-footer{
+ }
+ 
+ .icon5{
+  grid-column: 3;
+  grid-row: 7;
+  margin: 0 auto;
+ }
+ 
+ 
+ footer{
   font-size: 12px;
+  font-weight: bold;
   text-align: center;
   margin-top: 30px;
   padding: 8px;
-}
-
-.buttonIcon{
-  width: 60px; 
+ }
+ 
+ .buttonIcon{
+  width: 60px;
   margin: 0 auto;
-}
-
-
-
-@media(min-width: 767px) {
-  
-
-.grid {
+ }
+ 
+ 
+ 
+ @media(min-width: 767px) {
+ 
+ 
+ .grid {
   display: grid;
-  grid-template-columns: 6;
-  grid-template-rows:  minmax(10px, auto); 
-
-} 
-
-.BGI{
+  grid-template-columns: 8;
+  grid-template-rows:  minmax(10px, auto);
+ 
+ }
+ 
+ .BGI{
   z-index: -500;
   opacity: .4;
   position: fixed;
-}
-
-h1{
-  display: inline;
-  grid-column: 2;
-  grid-row: 1;
-  margin: 0 auto;
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-
-}
-
-h3{
-  grid-column: 3;
-  grid-row: 1;
-  margin: 0 auto;
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-
-}
-.image {
+ }
+ 
+ .image {
   max-width: 100%;
-  grid-column: 2 / 3;
+  grid-column: 1 / 5;
   grid-row: 3 / 6;
   padding: 10px;
-  background-color: rgb(245, 245, 245);
   margin: 0 auto;
   box-shadow: 0 0 10px #4b4b4b;
   margin-top: 40px;
-  margin-bottom: 80px;
-  
-}
+  margin-bottom: 40px;
+ }
 
-.map {
+ #pic-box{
+   height: 200px;
+   overflow: hidden;
+
+ }
+ .map {
   max-width: 100%;
-  grid-column: 3 / 4;
-  grid-row: 3 / 6;
+  grid-column: 4 / 8;
+  grid-row: 3 / 5;
   padding: 10px;
-  background-color: rgb(245, 245, 245);
   margin: 0 auto;
   box-shadow: 0 0 10px #4b4b4b;
   margin-top: 40px;
-  margin-bottom: 80px;
-  
-}
+  margin-bottom: 40px;
+ 
+ }
+ 
+ .PikeMarket{
+  width: 400px;
+ }
+ 
+ h3{
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 350px;
+  grid-column: 2 / 5;
+ }
 
-#homeButton {
+ #homeButton {
   grid-column: 1;
-  grid-row: 1;
   margin-left: 25px;
-}
-
-.icon1 {
-  grid-column: 1;
-  grid-row: 6 / 7; 
-  margin: 0 auto;
-
-} 
-
-.icon2{
+ }
+ 
+ .icon1 {
   grid-column: 2;
   grid-row: 6 / 7;
   margin: 0 auto;
-}
-
-.icon3{
+ }
+ 
+ .icon2{
   grid-column: 3;
   grid-row: 6 / 7;
   margin: 0 auto;
-}
-
-.icon4{
+ }
+ 
+ .icon3{
   grid-column: 4;
   grid-row: 6 / 7;
   margin: 0 auto;
-} 
+ }
+ 
+ .icon4{
+  grid-column: 5;
+  grid-row: 6 / 7;
+  margin: 0 auto;
+ }
 
-.buttonIcon{
-  width: 100px; 
-}
+ .icon5{
+  grid-column: 6;
+  grid-row: 6 / 7;
+  margin: 0 auto;
+ }
+ 
+ 
+ .buttonIcon{
+  width: 100px;
+ }
 
-footer{
+ #homeButton{
+   width: 85px;
+   height: 20px;
+   font-weight: bold;
+   font-size: 12px;
+ }
+
+ footer{
   font-size: 16px;
-  font-weight: bold;
   text-align: center;
   padding: 8px;
-}
-
-
-}
-
+  margin-top: 40px;
+ }
+ 
+ 
+ }
