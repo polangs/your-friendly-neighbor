@@ -13,22 +13,22 @@
 </head>
 <body class="addPages">
 
-<% restaurants.forEach(restaurant => { %>
+<% for (let i = 0; i < 10; i++) { %>
 <div class="tile">
     <a href="/"><button id="homeButton" type="home">Home</button></a>
-    <img src="<%= restaurant.image %>"/>
+    <img src="<%= restaurants[i].image %>"/>
     <div class="container">
         <ul>
-            <li class="name"><%= restaurant.restaurant_name %></li>
-            <li class="rating">Rating: <%= restaurant.rating %> /5</li>
-            <li class="price">Price: <%= restaurant.price %></li>
-            <li class="address"><%= restaurant.address %></li>
-            <li class="phone"><%= restaurant.phoneNumber %></li>
-            <li class="price"><a href="<%= restaurant.url %>" style="color: darkcyan">Visit Yelp</a></li>
+            <li class="name"><%= restaurants[i].restaurants_name %></li>
+            <li class="rating">Rating: <%= restaurants[i].rating %> /5</li>
+            <li class="price">Price: <%= restaurants[i].price %></li>
+            <li class="address"><%= restaurants[i].address %></li>
+            <li class="phone"><%= restaurants[i].phoneNumber %></li>
+            <li class="price"><a href="<%= restaurants[i].url %>" style="color: darkcyan">Visit Yelp</a></li>
         </ul>
     </div>
 </div>
-<% }); %>
+<% }; %>
 </body>
 
 </html>
