@@ -2,8 +2,8 @@ function getLocation(query, client, superagent) {
   console.log('TESTING QUERY', query);
   const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEO_DATA}`;
 
-  
-  
+
+
   return superagent.get(URL)
     .then(response => {
       const locationName = response.body.results[0].address_components[0].long_name;
@@ -11,9 +11,14 @@ function getLocation(query, client, superagent) {
       return superagent.get(imageSearchURL).then(imageSearchResult => {
         console.log(imageSearchResult.body.items);
         const link = imageSearchResult.body.items[0].link;
-        return {query: query,
-                imageURL: link,
-                locationInfo: response.body.results[0]}
+        return {
+          query: query,
+          imageURL: link,
+          locationInfo: response.body.results[0]
+        }
+      }).catch(err => {
+        console.error('image fetch error', err);
+        return { query: query, locationInfo: response.body.results[0], imageURL: 'https://www.placecage.com/200/200' };
       })
     })
     .then(locationData => {
