@@ -18,20 +18,18 @@
 
   <% for (let i = 0; i < 10; i++) { %>
   <div class="tile">
-    <img src="<%= bars[i].image %>" />
+    <img src="<%= trails[i].image %>" />
     <div class="container">
       <ul>
-        <li class="name"><%= bars[i].bars_name %></li>
-        <li class="rating">Rating: <%= bars[i].rating %> /5</li>
-        <li class="price">Price: <%= bars[i].price %></li>
-        <li class="address"><%= bars[i].address %></li>
-        <li class="phone"><%= bars[i].phoneNumber %></li>
-        <li class="price"><a href="<%= bars[i].url %>" style="color: darkcyan">Visit Yelp</a></li>
+        <li class="name"><%= trails[i].name %></li>
+        <li class="rating">Rating: <%= trails[i].rating %> /5</li>
+        <li class="address"><%= trails[i].address %></li>
+        <li class="phone"><%= trails[i].phoneNumber %></li>
+        <li class="price"><a href="<%= trails[i].url %>" style="color: darkcyan">Visit Yelp</a></li>
       </ul>
     </div>
   </div>
   <% }; %>
-
 </body>
 
 </html>
