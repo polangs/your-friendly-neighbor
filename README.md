@@ -1,25 +1,38 @@
 
-# Your Friendly Neighbor
+# Experience Local
 
-## Seattle 301d48 Final Project 1.0.0
+## Code Fellows Seattle 301d48 Final Project 1.0.0
 ***
-- User can search for a city or local neighborhood data.  
+- User can search for **City** or local **Neighborhood** data.  
 
-- Within the city or neighborhood, User can search **Restaurants**, **Events**, **Transit**, **Parks**, **Crime**, and **Local History**.   
+- Within the city or neighborhood, User can search **Restaurants**, **Events**, **Maps**, **Pubs** and **Parks**.   
 
-- User can view our webiste on a Computer, Mobile and Table.    
+- User can view the website on **Mobile** or **Browser**.    
+ ***  
 
-- Data provide by Geodata, Eventbright, Yelp, and FBI API's.   
+ - User first gets prompted to either **Search** a New Location or view **Popular Destinations** from a cached dropdown menu for stored locations.
+ - Depending on User's choice, either they search a **Popular Destination** or do a **New Search**.
+ - If User chooses **New Search**, they can input a **City** or **Neighborhood** and will receive both a map and images from that location using API data.
+ - User can then click on icons for **Events**, **Parks**, **Pubs** and **Restaurants** for their **Searched Location**.
+ - If the **Location Data** is new data from an API, our website will cache it into local storage to be referenced for additional searches.  
+ ***
 
-***
 
 
 ### Libraries  
 
 - Built in Visual Studio Code
 - GitHub - Version control.
-- Google Images for our Slideshow
-***  
+- Google Images
+- Upsplash Images
+***    
+
+### Data  
+- Google API
+- Eventbrite API
+- Yelp API
+- Geo Data API  
+***
 
 ### Authors  
 Paula Cruz -  https://github.com/polangs  
@@ -30,7 +43,8 @@ Matthew Heyert - https://github.com/heyerthb
 ***
 
 ### Acknowledgements     
-- Dustin Haynes - Custom Icon Artwork   
+- Dustin Haynes - Custom Icon Artwork 
+- JB Tellez - Team Troubleshooter  
 *** 
 
 ### License
