@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/modules.css" />
     <link rel="stylesheet" href="/styles/icons.css" />
+    <a href="/"><button id="homeButton" type="home">Home</button></a>
+
 </head>
 
 <body class="addPages">
 <% for (let i = 0; i < 10; i++) { %>
     <div class="tile">
+      <img src="<%= events[i].image %>"/>
 
-        <img src="<%= events[i].image %>"/>
 
         <div class="container">
             <ul>
