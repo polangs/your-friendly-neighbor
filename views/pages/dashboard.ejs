@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
+ <head>
+   <title>Search Form</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/styles/reset.css" />
+     <link rel="stylesheet" href="/styles/dashboard.css" />
+     <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
+     <link rel="stylesheet" href="/styles/modules.css" />
+     <link rel="stylesheet" href="/styles/icons.css"/>
+ </head>
+
+ <body>
+     <div class="BGI"><img src="/styles/img/map-image.jpg"></div>
+   <main>
+
+
+     <h1><%= formatted_query %></h1>
   
-  <head>
-    <title>Search Form</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/styles/reset.css" />
-      <link rel="stylesheet" href="/styles/dashboard.css" />
-      <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
-      <link rel="stylesheet" href="/styles/modules.css" /> 
-      <link rel="stylesheet" href="/styles/icons.css"/>  
-  </head>
-
-  <body>
-      <div class="BGI"><img src="/styles/img/map-image.jpg"></div>
-    <main>
-
-      
-      <h1><%= formatted_query %></h1>
-
-   
-
-      <div class="grid">
-
-        
         <div class="image"><img src="/styles/img/PikeMarket.jpeg" alt="fremont" class="PikeMarket"></div>
 
         
@@ -40,14 +35,30 @@
         <div class="icon5"><img src="/styles/img/Crime.svg" atl="icon4 here" class="buttonIcon"></div>
 
 
+       <button id="homeButton" type="home">Home</button>
+       <h1><%= name %></h1>
+       <h3><%= formatted_query %></h3>
+       <div id="pic-box" class="image">
+         <img src="<%= image %>" alt="fremont" class="PikeMarket">
       </div>
-      
 
-      <%- include('../layout/footer') %>
+       <div class="map"><img src="<%= map %>" alt="map" title="<%= name %>" class="PikeMarket"></div>
 
-   </main>
+       <div class="icon1"><a href="/restaurants?location=<%= formatted_query %>"><img src="/styles/img/Dining.svg" alt="icon1 here" class="buttonIcon"></a></div>
+       <div class="icon2"><a href="/bars?location=<%= formatted_query %>"><img src="/styles/img/Beer.svg" alt="icon1 here" class="buttonIcon"></a></div>
+       <div class="icon3"><img src="/styles/img/Bus.svg" alt="icon3 here" class="buttonIcon"></div>
+       <div class="icon4"><img src="/styles/img/Park.svg" alt="icon1 here" class="buttonIcon"></div>
+       <div class="icon5"><img src="/styles/img/Walking.svg" alt="icon4 here" class="buttonIcon"></div>
 
-   
 
-  </body>
+     </div>
+
+
+     <%- include('../layout/footer') %>
+
+  </main>
+
+
+
+ </body>
 </html>
